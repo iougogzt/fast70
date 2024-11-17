@@ -1,0 +1,18 @@
+$(document).ready(function(){
+  // window.open("app://open.my.app", "_blank"); // "_blank" 
+var letCollapseWidth=!1,paddingValue=30,sumWidth=$(".navbar-right-block").width()+$(".navbar-left-block").width()+$(".navbar-brand").width()+paddingValue;$(window).on("resize",function(){navbarResizerFunc()});var navbarResizerFunc=function navbarResizerFunc(){if(sumWidth<=$(window).width()){if(letCollapseWidth&&letCollapseWidth<=$(window).width()){$("#navbar").addClass("navbar-collapse");$("#navbar").removeClass("navbar-collapsed");$("nav").removeClass("navbar-collapsed-before");letCollapseWidth=!1}}else{$("#navbar").removeClass("navbar-collapse");$("#navbar").addClass("navbar-collapsed");$("nav").addClass("navbar-collapsed-before");letCollapseWidth=$(window).width()}};if($(window).width()>=768){navbarResizerFunc()}
+$('[data-toggle="tooltip"]').tooltip()});const showNavbar=(toggleId,navId,bodyId,headerId,wrapperId)=>{const toggle=document.getElementById(toggleId),nav=document.getElementById(navId),bodypd=document.getElementById(bodyId),headerpd=document.getElementById(headerId),wrapperac=document.getElementById(wrapperId);if(toggle&&nav&&bodypd&&headerpd&&wrapperac){toggle.addEventListener("click",()=>{nav.classList.toggle("show");toggle.classList.toggle("none");bodypd.classList.toggle("body-pd");headerpd.classList.toggle("body-pd");wrapperac.classList.toggle("actives")})}};showNavbar("header-toggle","nav-bar","body-pd","header","wrapper");const linkColor=document.querySelectorAll(".nav__link");function colorLink(){if(linkColor){linkColor.forEach((l)=>l.classList.remove("active"));this.classList.add("active")}}
+linkColor.forEach((l)=>l.addEventListener("click",colorLink));function darkMode_toggle(){if(document.body.classList.contains("darkMode")){document.body.classList.remove("darkMode");document.querySelector(".btn-toggleMode").innerHTML='<i class="fas fa-moon"></i>';setCookie("darkMode","",1)}else{document.body.classList.add("darkMode");document.querySelector(".btn-toggleMode").innerHTML='<i class="fas fa-sun"></i>';setCookie("darkMode","yes",1)}}
+document.querySelector(".btn-toggleMode").addEventListener("click",()=>darkMode_toggle());(function(){if(getCookie("darkMode"))darkMode_toggle()})();function setCookie(name,value,daysToLive){let cookie=name+"="+encodeURIComponent(value);let age=typeof daysToLive==="number"?daysToLive*24*60*60:0;cookie+="; max-age="+age;document.cookie=cookie}
+function getCookie(name){let cookieArr=document.cookie.split(";");for(let i=0;i<cookieArr.length;i++){let cookiePair=cookieArr[i].split("=");if(name==cookiePair[0].trim()){return decodeURIComponent(cookiePair[1])}}
+return null}
+function openCity(evt,cityName){var i,tabcontent,tablinks;tabcontent=document.getElementsByClassName("tabcontent");for(i=0;i<tabcontent.length;i++){tabcontent[i].style.display="none"}
+tablinks=document.getElementsByClassName("tablinks");for(i=0;i<tablinks.length;i++){tablinks[i].className=tablinks[i].className.replace(" active","")}
+document.getElementById(cityName).style.display="block";evt.currentTarget.className+=" active"}
+document.getElementById("defaultOpen").click();function openPay(evt,payName){var i,tabcontentpay,tablinkspay;tabcontentpay=document.getElementsByClassName("tabcontentpay");for(i=0;i<tabcontentpay.length;i++){tabcontentpay[i].style.display="none"}
+tablinkspay=document.getElementsByClassName("tablinkspay");for(i=0;i<tablinkspay.length;i++){tablinkspay[i].className=tablinkspay[i].className.replace(" active","")}
+document.getElementById(payName).style.display="block";evt.currentTarget.className+=" active"}
+document.getElementById("defaultOpenpay").click()
+
+
+
